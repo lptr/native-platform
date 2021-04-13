@@ -26,7 +26,7 @@
 
 void mark_failed_with_errno(JNIEnv* env, const char* message, jobject result) {
     char* buffer = (char*) malloc(1024);
-#if defined(__linux__) && _GNU_SOURCE
+#if defined(__linux__) && _GNU_SOURCE && ! _XOPEN_SOURCE >= 600
     // GNU semantics
     char* errno_message = strerror_r(errno, buffer, 1024);
 #else
