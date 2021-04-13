@@ -61,10 +61,10 @@ public class NcursesPlugin extends RuleSource {
         }
         for (String d : ImmutableList.of("/lib", "/usr/lib", "/lib64", "/lib/x86_64-linux-gnu", "/lib/aarch64-linux-gnu")) {
             File libDir = new File(d);
-            if (new File(libDir, "libncurses.so.6").isFile()) {
+            if (new File(libDir, "libncurses.so.6").isFile() || new File(libDir, "libncursesw.so.6").isFile()) {
                 return "6";
             }
-            if (new File(libDir, "libncurses.so.5").isFile()) {
+            if (new File(libDir, "libncurses.so.5").isFile() || new File(libDir, "libncursesw.so.5").isFile()) {
                 return "5";
             }
         }
