@@ -38,12 +38,12 @@ public class ReleasePlugin implements Plugin<Project> {
         final BintrayCredentials credentials = project.getExtensions().getByType(BintrayCredentials.class);
 
         versions.getReleaseRepository().ifPresent(releaseRepository -> {
-            credentials.assertPresent();
+            // credentials.assertPresent();
             project.getRepositories().maven(repo -> {
                 repo.setUrl(releaseRepository.getUrl());
-                repo.getCredentials().setUsername(credentials.getUserName());
-                repo.getCredentials().setPassword(credentials.getApiKey());
-                repo.getAuthentication().create("basic", BasicAuthentication.class);
+                // repo.getCredentials().setUsername(credentials.getUserName());
+                // repo.getCredentials().setPassword(credentials.getApiKey());
+                // repo.getAuthentication().create("basic", BasicAuthentication.class);
             });
         });
 

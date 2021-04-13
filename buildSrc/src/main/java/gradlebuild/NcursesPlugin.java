@@ -59,7 +59,7 @@ public class NcursesPlugin extends RuleSource {
         if (!os.isLinux()) {
             return "5";
         }
-        for (String d : ImmutableList.of("/lib", "/lib64", "/lib/x86_64-linux-gnu", "/lib/aarch64-linux-gnu")) {
+        for (String d : ImmutableList.of("/lib", "/usr/lib", "/lib64", "/lib/x86_64-linux-gnu", "/lib/aarch64-linux-gnu")) {
             File libDir = new File(d);
             if (new File(libDir, "libncurses.so.6").isFile()) {
                 return "6";
